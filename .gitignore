@@ -1,0 +1,34 @@
+# Configuración local y secretos (conservar las plantillas)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Dependencias y compilación
+node_modules/
+target/
+dist/
+.angular/
+out-tsc/
+
+# Resultados temporales; la evidencia revisada en docs/evidence sí se versiona
+*.log
+__pycache__/
+*.py[cod]
+test-results/
+playwright-report/
+coverage/
+/P04_*.zip
+
+# Editor y sistema
+.DS_Store
+.idea/
+.vscode/
+*.iml
+
+# Material docente de consulta local; la entrega está en docs/
+/eminus.md
+/p4.md
+/pr07.md
+/springAndAngular.md

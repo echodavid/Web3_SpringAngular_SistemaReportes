@@ -1,0 +1,127 @@
+{
+  "checks": [
+    {
+      "method": "GET",
+      "path": "/actuator/health",
+      "status": 200,
+      "result": "VERIFICADO"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/reportes",
+      "status": 401,
+      "result": "VERIFICADO"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/login",
+      "status": 200,
+      "result": "VERIFICADO"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/login",
+      "status": 200,
+      "result": "VERIFICADO"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/login",
+      "status": 200,
+      "result": "VERIFICADO"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/categorias",
+      "status": 200,
+      "result": "VERIFICADO"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/zonas",
+      "status": 200,
+      "result": "VERIFICADO"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/reportes",
+      "status": 400,
+      "result": "VERIFICADO"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/reportes",
+      "status": 201,
+      "result": "VERIFICADO"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/reportes/1/evidencias",
+      "status": 201,
+      "result": "VERIFICADO"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/reportes/1/estado",
+      "status": 403,
+      "result": "VERIFICADO"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/reportes/1/estado",
+      "status": 409,
+      "result": "VERIFICADO"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/reportes/1",
+      "status": 200,
+      "result": "VERIFICADO"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/reportes/1/estado",
+      "status": 200,
+      "result": "VERIFICADO"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/reportes/1/estado",
+      "status": 200,
+      "result": "VERIFICADO"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/reportes/1/estado",
+      "status": 200,
+      "result": "VERIFICADO"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/reportes/1/estado",
+      "status": 200,
+      "result": "VERIFICADO"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/eventos-contexto",
+      "status": 201,
+      "result": "VERIFICADO"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/reportes/1",
+      "status": 200,
+      "result": "VERIFICADO"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/reportes?estado=CERRADO&prioridad=ALTA",
+      "status": 200,
+      "result": "VERIFICADO"
+    }
+  ],
+  "reportId": 1,
+  "result": "VERIFICADO",
+  "note": "Se conserva el reporte sintético y sus relaciones como evidencia."
+}

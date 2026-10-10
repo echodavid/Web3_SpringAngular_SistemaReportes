@@ -1,0 +1,38 @@
+import { test, expect } from '@playwright/test';
+import { readFileSync } from 'fs';
+const env=Object.fromEntries(readFileSync('../.env','utf8').trim().split('\n').map(l=>l.split('=')));
+test('ciudadano registra, consulta, agrega evidencia y operador cambia estado',async({page})=>{
+ await page.goto('/');
+ await page.getByLabel('Correo de prueba').fill('ciudadano@example.test');
+ await page.getByLabel('Contraseña',{exact:true}).fill(env['DEMO_PASSWORD']);
+ await page.getByRole('button',{name:'Entrar',exact:true}).click();
+ await expect(page.getByRole('heading',{name:'Mis reportes'})).toBeVisible();
+ await page.getByRole('button',{name:'+ Nuevo reporte'}).click();
+ const title='Reporte navegador '+Date.now();
+ await page.getByLabel('Título',{exact:true}).fill(title);
+ await page.getByLabel('Categoría',{exact:true}).selectOption({index:1});
+ await page.getByLabel('Zona general',{exact:true}).selectOption({index:1});
+ await page.getByLabel('Descripción ficticia').fill('Incidencia sintética para demostrar persistencia.');
+ await page.getByRole('button',{name:'Registrar reporte',exact:true}).click();
+ await expect(page.getByRole('heading',{name:title,exact:true})).toBeVisible();
+ await page.getByLabel('Referencia ficticia').fill('simulada://navegador/prueba');
+ await page.getByRole('button',{name:'Agregar evidencia'}).click();
+ await expect(page.getByText('simulada://navegador/prueba',{exact:true})).toBeVisible();
+ await page.screenshot({path:'../docs/evidence/ciudadano.png',fullPage:true});
+ await page.getByRole('button',{name:'Cerrar sesión'}).click();
+ await page.getByLabel('Correo de prueba').fill('operador@example.test');
+ await page.getByLabel('Contraseña',{exact:true}).fill(env['DEMO_PASSWORD']);
+ await page.getByRole('button',{name:'Entrar',exact:true}).click();
+ await page.getByRole('row').filter({hasText:title}).getByRole('button').click();
+ await page.getByLabel('Nuevo estado').selectOption('EN_REVISION');
+ await page.getByLabel('Comentario',{exact:true}).fill('Revisión ficticia desde el navegador.');
+ await page.getByRole('button',{name:'Guardar cambio y seguimiento'}).click();
+ await expect(page.getByText('Revisión ficticia desde el navegador.',{exact:true})).toBeVisible();
+ await page.screenshot({path:'../docs/evidence/operador.png',fullPage:true});
+});
+test('presenta un error de credenciales de la API',async({page})=>{
+ await page.goto('/');await page.getByLabel('Correo de prueba').fill('noexiste@example.test');
+ await page.getByLabel('Contraseña',{exact:true}).fill('ContraseñaErrónea123!');
+ await page.getByRole('button',{name:'Entrar',exact:true}).click();
+ await expect(page.getByRole('alert')).toContainText('HTTP 401');
+});

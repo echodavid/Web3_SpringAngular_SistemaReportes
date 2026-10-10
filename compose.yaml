@@ -1,0 +1,38 @@
+name: pr07-p04
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: reportes_ciudadanos
+      POSTGRES_USER: reportes
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?Ejecuta scripts/setup-env.sh}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U reportes -d reportes_ciudadanos"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+  backend:
+    build: ./BackendP04
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/reportes_ciudadanos
+      DB_USERNAME: reportes
+      DB_PASSWORD: ${DB_PASSWORD:?Ejecuta scripts/setup-env.sh}
+      JWT_SECRET: ${JWT_SECRET:?Ejecuta scripts/setup-env.sh}
+      SPRING_PROFILES_ACTIVE: demo
+      DEMO_PASSWORD: ${DEMO_PASSWORD:?Ejecuta scripts/setup-env.sh}
+      CORS_ORIGINS: http://localhost:4200
+    ports:
+      - "127.0.0.1:8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+  frontend:
+    build: ./FrontendP04
+    ports:
+      - "127.0.0.1:4200:80"
+    depends_on:
+      - backend
+volumes:
+  pgdata:

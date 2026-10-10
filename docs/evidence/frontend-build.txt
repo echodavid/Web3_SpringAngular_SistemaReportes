@@ -1,0 +1,18 @@
+Node: 18.20.8
+Angular: 16.2.12
+Comando: npm run build (ejecutado con Node 18.20.8)
+- Generating browser application bundles (phase: setup)...
+✔ Browser application bundle generation complete.
+✔ Browser application bundle generation complete.
+- Generating index html...
+✔ Index html generation complete.
+
+Initial Chunk Files           | Names         |  Raw Size | Estimated Transfer Size
+main.f85d1bc0503a8aad.js      | main          | 206.68 kB |                55.37 kB
+polyfills.9e4875b819c7a0ba.js | polyfills     |  33.02 kB |                10.64 kB
+styles.fc8186276d97ed70.css   | styles        |   4.32 kB |                 1.34 kB
+runtime.0e40c479aa20472d.js   | runtime       | 894 bytes |               515 bytes
+
+| Initial Total | 244.90 kB |                67.85 kB
+
+Build at: 2026-10-10T02:29:47.071Z - Hash: 9e75b52c895f16ca - Time: 6683ms

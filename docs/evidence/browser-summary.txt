@@ -1,0 +1,11 @@
+
+> pr07-reportes-ciudadanos@1.0.0 test:e2e
+> playwright test
+
+
+Running 2 tests using 1 worker
+
+  ✓  1 e2e/reportes.spec.ts:4:5 › ciudadano registra, consulta, agrega evidencia y operador cambia estado (1.7s)
+  ✓  2 e2e/reportes.spec.ts:33:5 › presenta un error de credenciales de la API (661ms)
+
+  2 passed (3.0s)
