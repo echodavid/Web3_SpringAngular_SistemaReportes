@@ -56,49 +56,49 @@
     },
     {
       "method": "POST",
-      "path": "/api/v1/reportes/1/evidencias",
+      "path": "/api/v1/reportes/4/evidencias",
       "status": 201,
       "result": "VERIFICADO"
     },
     {
       "method": "PATCH",
-      "path": "/api/v1/reportes/1/estado",
+      "path": "/api/v1/reportes/4/estado",
       "status": 403,
       "result": "VERIFICADO"
     },
     {
       "method": "PATCH",
-      "path": "/api/v1/reportes/1/estado",
+      "path": "/api/v1/reportes/4/estado",
       "status": 409,
       "result": "VERIFICADO"
     },
     {
       "method": "GET",
-      "path": "/api/v1/reportes/1",
+      "path": "/api/v1/reportes/4",
       "status": 200,
       "result": "VERIFICADO"
     },
     {
       "method": "PATCH",
-      "path": "/api/v1/reportes/1/estado",
+      "path": "/api/v1/reportes/4/estado (2 concurrentes)",
+      "status": "200+409",
+      "result": "VERIFICADO"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/reportes/4/estado",
       "status": 200,
       "result": "VERIFICADO"
     },
     {
       "method": "PATCH",
-      "path": "/api/v1/reportes/1/estado",
+      "path": "/api/v1/reportes/4/estado",
       "status": 200,
       "result": "VERIFICADO"
     },
     {
       "method": "PATCH",
-      "path": "/api/v1/reportes/1/estado",
-      "status": 200,
-      "result": "VERIFICADO"
-    },
-    {
-      "method": "PATCH",
-      "path": "/api/v1/reportes/1/estado",
+      "path": "/api/v1/reportes/4/estado",
       "status": 200,
       "result": "VERIFICADO"
     },
@@ -110,7 +110,7 @@
     },
     {
       "method": "GET",
-      "path": "/api/v1/reportes/1",
+      "path": "/api/v1/reportes/4",
       "status": 200,
       "result": "VERIFICADO"
     },
@@ -121,7 +121,7 @@
       "result": "VERIFICADO"
     }
   ],
-  "reportId": 1,
+  "reportId": 4,
   "result": "VERIFICADO",
   "note": "Se conserva el reporte sintético y sus relaciones como evidencia."
 }

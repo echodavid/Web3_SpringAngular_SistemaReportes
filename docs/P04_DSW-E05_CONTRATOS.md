@@ -1,6 +1,6 @@
 # Catálogo HTTP/JSON
 
-Contrato OpenAPI exportable: `GET http://localhost:8080/v3/api-docs`; copia de entrega `docs/openapi.json`. Documentación detallada con campos, entradas y respuestas: [RUTAS_API](../BackendP04/RUTAS_API.md). Base `/api/v1`; Content-Type `application/json`; Bearer JWT salvo registro y login. Salud pública `/actuator/health` responde `{"status":"UP"}` cuando la base está disponible.
+Contrato OpenAPI exportable: `GET http://localhost:8080/v3/api-docs` (o `http://localhost:${API_PORT}/v3/api-docs` si se define `API_PORT` en `.env`); copia de entrega `docs/openapi.json`. Documentación detallada con campos, entradas y respuestas: [RUTAS_API](../BackendP04/RUTAS_API.md). Base `/api/v1`; Content-Type `application/json`; Bearer JWT salvo registro y login. Salud pública `/actuator/health` responde `{"status":"UP"}` cuando la base está disponible.
 
 | Método / ruta relativa | Entrada | Salida exitosa | Acceso |
 | --- | --- | --- | --- |

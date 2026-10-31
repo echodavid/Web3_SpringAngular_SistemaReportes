@@ -1,0 +1,20 @@
+$ docker compose --profile e2e config --services
+backend1
+backend2
+backend3
+db
+e2e
+frontend
+lb
+
+$ docker compose config  (puertos publicados por el balanceador)
+        target: /var/lib/postgresql/data
+        target: /etc/nginx/conf.d/default.conf
+        host_ip: 127.0.0.1
+        target: 80
+        published: "4200"
+        host_ip: 127.0.0.1
+        target: 80
+        published: "18080"
+
+Resultado: configuración válida y stack verificado el 2026-10-30 con API_PORT=18080 (8080 ocupado por otro proyecto).

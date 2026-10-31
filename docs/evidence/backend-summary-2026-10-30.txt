@@ -1,0 +1,102 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------< com.reportesciudadanos:reportes-ciudadanos >-------------
+[INFO] Building reportes-ciudadanos 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ reportes-ciudadanos ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 1 resource
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ reportes-ciudadanos ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- resources:3.2.0:testResources (default-testResources) @ reportes-ciudadanos ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ reportes-ciudadanos ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ reportes-ciudadanos ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.reportesciudadanos.ApiIntegrationTest
+19:26:01.074 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+19:26:01.082 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+19:26:01.115 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.reportesciudadanos.ApiIntegrationTest] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+19:26:01.126 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.reportesciudadanos.ApiIntegrationTest], using SpringBootContextLoader
+19:26:01.130 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.reportesciudadanos.ApiIntegrationTest]: class path resource [com/reportesciudadanos/ApiIntegrationTest-context.xml] does not exist
+19:26:01.131 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.reportesciudadanos.ApiIntegrationTest]: class path resource [com/reportesciudadanos/ApiIntegrationTestContext.groovy] does not exist
+19:26:01.131 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.reportesciudadanos.ApiIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+19:26:01.131 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.reportesciudadanos.ApiIntegrationTest]: ApiIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+19:26:01.250 [main] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/home/chappyd-0/Documents/Universidad/Semestre/Semestre_7/Desarrollo-Web/Actividades/Act-5/Web3_SpringAngular_SistemaReportes/BackendP04/target/classes/com/reportesciudadanos/ReportesCiudadanosApplication.class]
+19:26:01.251 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.reportesciudadanos.ReportesCiudadanosApplication for test class com.reportesciudadanos.ApiIntegrationTest
+19:26:01.331 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [com.reportesciudadanos.ApiIntegrationTest]: using defaults.
+19:26:01.331 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener]
+19:26:01.348 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@63f259c3, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@26ceffa8, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@600b90df, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@7c8c9a05, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@d41f816, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5c2375a9, org.springframework.test.context.transaction.TransactionalTestExecutionListener@60129b9a, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@78d6692f, org.springframework.test.context.event.EventPublishingTestExecutionListener@7a55af6b, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@3d9c13b5, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@492691d7, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@27216cd, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@558bdf1f, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@8576fa0, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@7582ff54, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@67545b57, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@6c2c1385]
+19:26:01.350 [main] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@4ae9cfc1 testClass = ApiIntegrationTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@512baff6 testClass = ApiIntegrationTest, locations = '{}', classes = '{class com.reportesciudadanos.ReportesCiudadanosApplication}', contextInitializerClasses = '[]', activeProfiles = '{test}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@632ceb35 key = [org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2ClientAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.reactive.WebTestClientAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@1b2abca6, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@342c38f8, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@729d991e, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@437da279, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@4b3fa0b3, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@4c1909a3, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@9660f4e], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true]], class annotated with @DirtiesContext [false] with mode [null].
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::               (v2.7.18)
+
+2026-10-30 19:26:01.587  INFO 1545043 --- [           main] c.reportesciudadanos.ApiIntegrationTest  : Starting ApiIntegrationTest using Java 17.0.21.0.3 on lenovo-73 with PID 1545043 (started by chappyd-0 in /home/chappyd-0/Documents/Universidad/Semestre/Semestre_7/Desarrollo-Web/Actividades/Act-5/Web3_SpringAngular_SistemaReportes/BackendP04)
+2026-10-30 19:26:01.589  INFO 1545043 --- [           main] c.reportesciudadanos.ApiIntegrationTest  : The following 1 profile is active: "test"
+2026-10-30 19:26:02.648  INFO 1545043 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-30 19:26:02.705  INFO 1545043 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 8 JPA repository interfaces.
+2026-10-30 19:26:03.192  INFO 1545043 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-30 19:26:03.391  INFO 1545043 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-30 19:26:03.452  INFO 1545043 --- [           main] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 9.22.3 by Redgate
+2026-10-30 19:26:03.452  INFO 1545043 --- [           main] o.f.c.internal.license.VersionPrinter    : See release notes here: https://rd.gt/416ObMi
+2026-10-30 19:26:03.452  INFO 1545043 --- [           main] o.f.c.internal.license.VersionPrinter    : 
+2026-10-30 19:26:03.488  INFO 1545043 --- [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:h2:mem:reportes (H2 2.1)
+2026-10-30 19:26:03.512  INFO 1545043 --- [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "PUBLIC"."flyway_schema_history" does not exist yet
+2026-10-30 19:26:03.514  INFO 1545043 --- [           main] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.011s)
+2026-10-30 19:26:03.521  INFO 1545043 --- [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "PUBLIC"."flyway_schema_history" ...
+2026-10-30 19:26:03.544  INFO 1545043 --- [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "PUBLIC": << Empty Schema >>
+2026-10-30 19:26:03.557  INFO 1545043 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "1 - initial schema"
+2026-10-30 19:26:03.589  INFO 1545043 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "2 - initial catalogs"
+2026-10-30 19:26:03.596  INFO 1545043 --- [           main] o.f.core.internal.command.DbMigrate      : Successfully applied 2 migrations to schema "PUBLIC", now at version v2 (execution time 00:00.024s)
+2026-10-30 19:26:03.685  INFO 1545043 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-10-30 19:26:03.737  INFO 1545043 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2026-10-30 19:26:03.907  INFO 1545043 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2026-10-30 19:26:04.057  INFO 1545043 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2026-10-30 19:26:04.629  INFO 1545043 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2026-10-30 19:26:04.635  INFO 1545043 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-30 19:26:06.076  INFO 1545043 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2026-10-30 19:26:06.141  INFO 1545043 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@599cf2cd, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@52984065, org.springframework.security.web.context.SecurityContextPersistenceFilter@3f8a44a4, org.springframework.security.web.header.HeaderWriterFilter@76ffd052, org.springframework.web.filter.CorsFilter@6dd59886, org.springframework.security.web.authentication.logout.LogoutFilter@6d514259, org.springframework.security.oauth2.server.resource.web.BearerTokenAuthenticationFilter@7d8a5ec7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@c2191a8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3305897c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@65a7bc80, org.springframework.security.web.session.SessionManagementFilter@433362e0, org.springframework.security.web.access.ExceptionTranslationFilter@57c7ec30, org.springframework.security.web.access.intercept.AuthorizationFilter@218c6d3e]
+2026-10-30 19:26:06.846  INFO 1545043 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-30 19:26:06.847  INFO 1545043 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-30 19:26:06.849  INFO 1545043 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-10-30 19:26:06.892  INFO 1545043 --- [           main] c.reportesciudadanos.ApiIntegrationTest  : Started ApiIntegrationTest in 5.513 seconds (JVM running for 6.368)
+2026-10-30 19:26:08.096  INFO 1545043 --- [pool-1-thread-2] o.h.e.j.b.internal.AbstractBatchImpl     : HHH000010: On release of batch it still contained JDBC statements
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.735 s - in com.reportesciudadanos.ApiIntegrationTest
+[INFO] Running com.reportesciudadanos.ReporteServiceTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.096 s - in com.reportesciudadanos.ReporteServiceTest
+[INFO] Running com.reportesciudadanos.TransitionPolicyTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.reportesciudadanos.TransitionPolicyTest
+2026-10-30 19:26:08.895  INFO 1545043 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-30 19:26:08.897  INFO 1545043 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-10-30 19:26:08.903  INFO 1545043 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  10.962 s
+[INFO] Finished at: 2026-10-30T19:26:09-06:00
+[INFO] ------------------------------------------------------------------------

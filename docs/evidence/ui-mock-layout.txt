@@ -1,0 +1,8 @@
+$ Chromium local contra build estático; API simulada con page.route (no sustituye E2E real)
+--- layout 390 px ---
+login { scrollWidth: 390, innerWidth: 390 }
+list { scrollWidth: 390, innerWidth: 390 }
+detail { scrollWidth: 390, innerWidth: 390 }
+--- error de conexión y reintento ---
+error: No se pudo conectar con la API. Comprueba que el backend esté iniciado. Reintentar conexión
+reintento OK
