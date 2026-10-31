@@ -1,19 +1,38 @@
 """Recorrido real HTTP/PostgreSQL. No imprime tokens ni contraseñas."""
 import json, os, uuid, urllib.request, urllib.error
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
-base=os.environ.get('API_URL','http://localhost:8080')
-env=dict(line.split('=',1) for line in Path('.env').read_text().splitlines() if line and not line.startswith('#'))
-checks=[]
-def req(method,path,body=None,token=None,expected=200):
- headers={'Content-Type':'application/json'}
- if token: headers['Authorization']='Bearer '+token
- request=urllib.request.Request(base+path,data=json.dumps(body).encode() if body is not None else None,method=method,headers=headers)
- try:
-  with urllib.request.urlopen(request,timeout=15) as response: status=response.status; data=json.load(response)
- except urllib.error.HTTPError as error: status=error.code; data=json.load(error)
- assert status==expected, (method,path,status,data)
- checks.append({'method':method,'path':path,'status':status,'result':'VERIFICADO'})
- return data
+from threading import Barrier
+
+env = dict(line.split('=', 1) for line in Path('.env').read_text().splitlines() if line and not line.startswith('#'))
+base = os.environ.get('API_URL', 'http://localhost:' + env.get('API_PORT', '8080'))
+checks = []
+
+
+def call(method, path, body=None, token=None):
+    """Ejecuta una petición y devuelve (status, json) sin lanzar por errores HTTP."""
+    headers = {'Content-Type': 'application/json'}
+    if token:
+        headers['Authorization'] = 'Bearer ' + token
+    request = urllib.request.Request(
+        base + path,
+        data=json.dumps(body).encode() if body is not None else None,
+        method=method,
+        headers=headers,
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=15) as response:
+            return response.status, json.load(response)
+    except urllib.error.HTTPError as error:
+        return error.code, json.load(error)
+
+
+def req(method, path, body=None, token=None, expected=200):
+    status, data = call(method, path, body, token)
+    assert status == expected, (method, path, status, data)
+    checks.append({'method': method, 'path': path, 'status': status, 'result': 'VERIFICADO'})
+    return data
+
 def login(role):
  return req('POST','/api/v1/auth/login',{'correoElectronico':role+'@example.test','password':env['DEMO_PASSWORD']})['accessToken']
 assert req('GET','/actuator/health')['status']=='UP'
@@ -27,7 +46,20 @@ req('POST',path+'/evidencias',{'tipo':'IMAGEN','referenciaFicticia':'simulada://
 req('PATCH',path+'/estado',{'estado':'EN_REVISION','comentario':'Intento no autorizado'},c,403)
 req('PATCH',path+'/estado',{'estado':'CERRADO','comentario':'Salto inválido'},o,409)
 assert req('GET',path,token=c)['reporte']['estado']=='REGISTRADO'
-for state,token in [('EN_REVISION',o),('EN_ATENCION',o),('RESUELTO',r),('CERRADO',r)]:
+
+# Dos operadores intentan la misma transición a la vez. El bloqueo optimista de @Version
+# deja ganar una petición; la otra recibe 409 y no crea un seguimiento duplicado.
+barrier = Barrier(2)
+def transition_once():
+    barrier.wait(timeout=10)
+    return call('PATCH', path + '/estado', {'estado': 'EN_REVISION', 'comentario': 'Cambio concurrente'}, o)[0]
+with ThreadPoolExecutor(max_workers=2) as pool:
+    futures = [pool.submit(transition_once) for _ in range(2)]
+    concurrent = sorted(future.result() for future in futures)
+assert concurrent == [200, 409], concurrent
+checks.append({'method': 'PATCH', 'path': path + '/estado (2 concurrentes)', 'status': '200+409', 'result': 'VERIFICADO'})
+
+for state,token in [('EN_ATENCION',o),('RESUELTO',r),('CERRADO',r)]:
  req('PATCH',path+'/estado',{'estado':state,'comentario':'Paso de demostración controlada'},token)
 req('POST','/api/v1/eventos-contexto',{'reporteId':rid,'fuente':'SIMULADOR_AMBIENTAL_01','variable':'temperatura','unidad':'°C','valor':32.5,'interpretacion':'Medición ficticia que contextualiza la atención.'},r,201)
 d=req('GET',path,token=c)

@@ -1,0 +1,42 @@
+ Container pr07-p04-backend1-1 Running 
+ Container pr07-p04-backend2-1 Running 
+ Container pr07-p04-backend3-1 Running 
+ Container pr07-p04-frontend-1 Running 
+ Container pr07-p04-lb-1 Running 
+ Container pr07-p04-db-1 Running 
+ Container pr07-p04-db-1 Waiting 
+ Container pr07-p04-db-1 Healthy 
+ Container pr07-p04-db-1 Waiting 
+ Container pr07-p04-backend1-1 Waiting 
+ Container pr07-p04-backend1-1 Waiting 
+ Container pr07-p04-db-1 Waiting 
+ Container pr07-p04-db-1 Healthy 
+ Container pr07-p04-db-1 Healthy 
+ Container pr07-p04-backend1-1 Healthy 
+ Container pr07-p04-backend1-1 Healthy 
+ Container pr07-p04-backend2-1 Waiting 
+ Container pr07-p04-backend3-1 Waiting 
+ Container pr07-p04-frontend-1 Waiting 
+ Container pr07-p04-backend1-1 Waiting 
+ Container pr07-p04-backend2-1 Healthy 
+ Container pr07-p04-frontend-1 Healthy 
+ Container pr07-p04-backend3-1 Healthy 
+ Container pr07-p04-backend1-1 Healthy 
+ Container pr07-p04-lb-1 Waiting 
+ Container pr07-p04-lb-1 Healthy 
+ Container pr07-p04-e2e-run-5df555ded8ad Creating 
+ Container pr07-p04-e2e-run-5df555ded8ad Created 
+
+Running 4 tests using 1 worker
+
+  ✓  1 e2e/reportes.spec.ts:47:5 › ciudadano registra, recarga, agrega evidencia y operador cambia estado (2.0s)
+  ✓  2 e2e/reportes.spec.ts:81:5 › muestra error de conexión y permite reintentar (426ms)
+  ✓  3 e2e/reportes.spec.ts:92:5 › no presenta desbordamiento horizontal en móvil (825ms)
+  ✓  4 e2e/reportes.spec.ts:109:5 › presenta un error de credenciales de la API (311ms)
+
+  4 passed (4.6s)
+npm notice
+npm notice New major version of npm available! 10.9.3 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice

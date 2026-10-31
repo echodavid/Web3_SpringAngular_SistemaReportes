@@ -7,6 +7,7 @@ import com.reportesciudadanos.repository.UsuarioRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.*;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 /** Solo laboratorio: no habilitar el perfil demo fuera del entorno local. */
@@ -27,7 +28,13 @@ public class DemoDataConfig {
           user.setCorreoElectronico(email);
           user.setPasswordHash(encoder.encode(password));
           user.setRol(roles.findByNombre(role).orElseThrow());
-          users.save(user);
+          try {
+            // Varias instancias pueden arrancar a la vez: la restricción UNIQUE
+            // decide cuál inserta y las demás continúan sin fallar.
+            users.saveAndFlush(user);
+          } catch (DataIntegrityViolationException ignored) {
+            // Otra instancia ya creó la cuenta demo.
+          }
         }
       }
     };

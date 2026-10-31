@@ -1,0 +1,7 @@
+$ DEMO_PASSWORD=*** npx playwright test --list
+Listing tests:
+  reportes.spec.ts:47:5 › ciudadano registra, recarga, agrega evidencia y operador cambia estado
+  reportes.spec.ts:81:5 › muestra error de conexión y permite reintentar
+  reportes.spec.ts:92:5 › no presenta desbordamiento horizontal en móvil
+  reportes.spec.ts:109:5 › presenta un error de credenciales de la API
+Total: 4 tests in 1 file

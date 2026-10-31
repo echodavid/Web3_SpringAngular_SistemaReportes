@@ -154,6 +154,43 @@ class ApiIntegrationTest {
   }
 
   @Test
+  void concurrentTransitionsAllowOneAndRejectTheOther() throws Exception {
+    long id = create();
+    var start = new java.util.concurrent.CyclicBarrier(2);
+    var pool = java.util.concurrent.Executors.newFixedThreadPool(2);
+    try {
+      var tasks = new java.util.ArrayList<java.util.concurrent.Future<Integer>>();
+      for (int i = 0; i < 2; i++) {
+        tasks.add(
+            pool.submit(
+                () -> {
+                  start.await(10, java.util.concurrent.TimeUnit.SECONDS);
+                  return mvc.perform(
+                          patch("/api/v1/reportes/" + id + "/estado")
+                              .with(as(RoleEnum.OPERADOR))
+                              .contentType("application/json")
+                              .content(
+                                  "{\"estado\":\"EN_REVISION\",\"comentario\":\"Cambio concurrente\"}"))
+                      .andReturn()
+                      .getResponse()
+                      .getStatus();
+                }));
+      }
+      var statuses = new java.util.ArrayList<Integer>();
+      for (var task : tasks) {
+        statuses.add(task.get(30, java.util.concurrent.TimeUnit.SECONDS));
+      }
+      java.util.Collections.sort(statuses);
+      Assertions.assertEquals(java.util.Arrays.asList(200, 409), statuses);
+    } finally {
+      pool.shutdownNow();
+    }
+    mvc.perform(get("/api/v1/reportes/" + id + "/seguimientos").with(as(RoleEnum.CIUDADANO)))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.length()").value(1));
+  }
+
+  @Test
   void unauthenticated() throws Exception {
     mvc.perform(get("/api/v1/reportes"))
         .andExpect(status().isUnauthorized())
